@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "gicisky_tag"
+version = "0.1.0"
+description = "Tools to write an image to a Gicisky tag"
+authors = ["Federico Poli <federpoli@gmail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+[tool.poetry.scripts]
+gicisky-tag-writer = "gicisky_tag.cli:main"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+bleak = "^0.21.1"
+pillow = "^10.0.1"
+numpy = "^1.26.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

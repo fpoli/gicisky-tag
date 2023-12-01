@@ -1,0 +1,5 @@
+*.html eol=lf
+*.py eol=lf
+*.toml eol=lf
+*.md eol=lf
+*.jpg binary

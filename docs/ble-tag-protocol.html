@@ -1,0 +1,859 @@
+<html>
+
+<head>
+    <title>蓝牙标签协议</title>
+    <style>
+body {
+    width: 800px;
+    margin: 20px auto;
+    line-break: anywhere
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1.4em auto;
+    max-width: 100%;
+    table-layout: fixed;
+    text-align: left;
+    width: 100%;
+}
+
+th {
+    border: 1px solid #bbb;
+    line-height: 24px;
+    height: 24px;
+    padding: 3px 12px;
+}
+
+td {
+    border: 1px solid #bbb;
+    line-height: 24px;
+    height: 24px;
+    padding: 3px 12px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+    </style>
+</head>
+
+<body>
+    <p><a href="https://zhuanlan.zhihu.com/p/633113543">Original page</a></p>
+
+    <article class="Post-Main Post-NormalMain" tabindex="-1">
+        <header class="Post-Header">
+            <h1 class="Post-Title">蓝牙标签协议</h1>
+            <div class="Post-Author">
+                <div class="AuthorInfo" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <div class="AuthorInfo">
+                        <meta itemprop="name" content="皮克智能电子货架标签">
+                        <meta itemprop="image"
+                            content="https://picx.zhimg.com/v2-0b9cc08a915cc0a9b4b07cf9c62fb21a_l.jpg?source=172ae18b">
+                        <meta itemprop="url" content="https://www.zhihu.com/people/79-22-97-35">
+                        <meta itemprop="zhihu:followerCount"><span class="UserLink AuthorInfo-avatarWrapper">
+                            <div class="css-1gomreu"><a href="//www.zhihu.com/people/79-22-97-35" target="_blank"
+                                    class="UserLink-link" data-za-detail-view-element_name="User"><img
+                                        class="Avatar AuthorInfo-avatar css-1syywx2"
+                                        src="https://picx.zhimg.com/v2-0b9cc08a915cc0a9b4b07cf9c62fb21a_l.jpg?source=172ae18b"
+                                        srcset="https://picx.zhimg.com/v2-0b9cc08a915cc0a9b4b07cf9c62fb21a_l.jpg?source=172ae18b 2x"
+                                        alt="皮克智能电子货架标签"></a></div>
+                        </span>
+                        <div class="AuthorInfo-content">
+                            <div class="AuthorInfo-head"><span class="UserLink AuthorInfo-name">
+                                    <div class="css-1gomreu"><a href="//www.zhihu.com/people/79-22-97-35"
+                                            target="_blank" class="UserLink-link"
+                                            data-za-detail-view-element_name="User">皮克智能电子货架标签</a>
+                                    </div>
+                                </span></div>
+                            <div class="AuthorInfo-detail">
+                                <div class="AuthorInfo-badge">
+                                    <div class="ztext AuthorInfo-badgeText css-0">优质的智能硬件产品及系统解决方案提供商</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="LabelContainer-wrapper"></div>
+            <div role="button" tabindex="0"></div>
+        </header>
+        <div class="Post-RichTextContainer">
+            <div class="css-1yuhvjn">
+                <div class="css-376mun">
+                    <div class="RichText ztext Post-RichText css-117anjg" options="[object Object]">
+                        <h3 data-first-child="">1.Request write block size command</h3>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>CMD</td>
+                                    <td>DATA</td>
+                                </tr>
+                                <tr>
+                                    <td>0x01</td>
+                                    <td>无</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="jVlzGq-9">Response for write block size command</p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>CMD</td>
+                                    <td>DATA (short)</td>
+                                </tr>
+                                <tr>
+                                    <td>0x01</td>
+                                    <td>Block size</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="0YA-lMWx">注意：short是低位在前，高位在后</p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <h3>2.Request write screen command</h3>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>CMD</td>
+                                    <td>DATA</td>
+                                </tr>
+                                <tr>
+                                    <td>0x02</td>
+                                    <td>Image length(int)</td>
+                                    <td>Image type(废弃)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="XqQFTLvT">注意：int 是低位在前，高位在后</p>
+                        <p data-pid="s7QKlqoT">Response for write screen command</p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>CMD</td>
+                                    <td>DATA (byte)</td>
+                                </tr>
+                                <tr>
+                                    <td>0x02</td>
+                                    <td>Status<br><br> 0:Success<br><br> Other:Fail</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <h3>3.Request start transfer command</h3>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>CMD</td>
+                                    <td>DATA</td>
+                                </tr>
+                                <tr>
+                                    <td>0x03</td>
+                                    <td>无</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="hE50hxD5">Response for start transfer command</p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>CMD</td>
+                                    <td>DATA</td>
+                                </tr>
+                                <tr>
+                                    <td>0x05</td>
+                                    <td>Previous block status(byte) 0: success<br><br> Other: Fail</td>
+                                    <td>Request block number(int)<br><br> (Request block index)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="EhU8u-wu">注意：int 是低位在前，高位在后</p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <h3>4.Request write cancel command</h3>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>CMD</td>
+                                    <td>DATA</td>
+                                </tr>
+                                <tr>
+                                    <td>0x04</td>
+                                    <td>无</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="-oJrDo0_">Response for write cancel command</p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>CMD</td>
+                                    <td>DATA (byte)</td>
+                                </tr>
+                                <tr>
+                                    <td>0x04</td>
+                                    <td>Status<br><br> 0:Success<br><br> Other: Fail</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <h3>5.Transfer data packet</h3>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>Index(4 byte)</td>
+                                    <td>DATA(N bytes)</td>
+                                </tr>
+                                <tr>
+                                    <td>Packet index (int)</td>
+                                    <td>N byte data (MAX=240)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="tRnolLtW">注意：int 是低位在前，高位在后</p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <h3>6.蓝牙标签交互图</h3>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <figure data-size="normal">
+                            <img src="ble-tag-protocol.jpg" data-caption="" data-size="normal" data-rawwidth="537"
+                                data-rawheight="1104" class="origin_image zh-lightbox-thumb" width="537" />
+                        </figure>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <h3>7.蓝牙服务特征值UUID</h3>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>Service特征值</td>
+                                </tr>
+                                <tr>
+                                    <td>0000fef0-0000-1000-8000-00805f9b34fb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>Notify特征值</td>
+                                </tr>
+                                <tr>
+                                    <td>0000fef1-0000-1000-8000-00805f9b34fb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>Write特征值</td>
+                                </tr>
+                                <tr>
+                                    <td>0000fef2-0000-1000-8000-00805f9b34fb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <h3>8.广播数据解析</h3>
+                        <p data-pid="RmDAw65j">manufacturerId值为0x5053</p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>Manufacturer ID</td>
+                                    <td>BYTE0</td>
+                                    <td>BYTE1</td>
+                                    <td>BYTE2</td>
+                                    <td>BYTE3</td>
+                                    <td>BYTE4</td>
+                                </tr>
+                                <tr>
+                                    <td>0x5053</td>
+                                    <td>设备类型(表1设备类型)<br><br> [LOW]</td>
+                                    <td>电池电压</td>
+                                    <td>软件版本</td>
+                                    <td>硬件版本</td>
+                                    <td>设备类型(表1设备类型)<br><br> [HIGHT]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="kndwD9Vg">注意：电池电压就是测量的电压扩大10倍。例如32代表电池为3.2V</p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <h3>9.屏幕参数说明</h3>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>BIT7</td>
+                                    <td>BIT6</td>
+                                    <td>BIT5</td>
+                                    <td>BIT4</td>
+                                    <td>BIT3</td>
+                                    <td>BIT2</td>
+                                    <td>BIT1</td>
+                                    <td>BIT0</td>
+                                </tr>
+                                <tr>
+                                    <td>Pixel3</td>
+                                    <td>Pixel2</td>
+                                    <td>Pixel1</td>
+                                    <td>Manu2</td>
+                                    <td>Manu1</td>
+                                    <td>Color2</td>
+                                    <td>Color1</td>
+                                    <td>Image type</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>序号</td>
+                                    <td>[pixel7~pixel1]</td>
+                                    <td>描述（屏幕分辨率）</td>
+                                    <td>备注</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>000</td>
+                                    <td>212x104</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>001</td>
+                                    <td>128x296</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>010</td>
+                                    <td>400x300</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>011</td>
+                                    <td>640x384</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>100</td>
+                                    <td>保留</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>101</td>
+                                    <td>保留</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>110</td>
+                                    <td>保留</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>111</td>
+                                    <td>保留</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>序号</td>
+                                    <td>[Manu2~Manu1]</td>
+                                    <td>描述（屏幕厂家）</td>
+                                    <td>备注</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>00</td>
+                                    <td>TFT</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>01</td>
+                                    <td>EPA</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>10</td>
+                                    <td>EPA-1</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>11</td>
+                                    <td>保留</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>序号</td>
+                                    <td>[Color2~Color1]</td>
+                                    <td>描述（屏幕类型）</td>
+                                    <td>备注</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>00</td>
+                                    <td>黑白色</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>01</td>
+                                    <td>黑白红色</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>10</td>
+                                    <td>黑白黄色</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>11</td>
+                                    <td>保留</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>序号</td>
+                                    <td>Image type</td>
+                                    <td>描述（屏幕类型）</td>
+                                    <td>备注</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>双镜像</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>单镜像</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>BIT7</td>
+                                    <td>BIT6</td>
+                                    <td>BIT5</td>
+                                    <td>BIT4</td>
+                                    <td>BIT3</td>
+                                    <td>BIT2</td>
+                                    <td>BIT1</td>
+                                    <td>BIT0</td>
+                                    <td>DEC</td>
+                                    <td>HEX</td>
+                                    <td>备注</td>
+                                </tr>
+                                <tr>
+                                    <td>Pixel3</td>
+                                    <td>Pixel2</td>
+                                    <td>Pixel1</td>
+                                    <td>Manu2</td>
+                                    <td>Manu1</td>
+                                    <td>Color2</td>
+                                    <td>Color1</td>
+                                    <td>Image type</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>8</td>
+                                    <td>0x08</td>
+                                    <td>EPA_LCD_212x104_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>11</td>
+                                    <td>0x0B</td>
+                                    <td>EPA_LCD_212x104_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>40</td>
+                                    <td>0x28</td>
+                                    <td>EPA_LCD_128x296_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>43</td>
+                                    <td>0x2B</td>
+                                    <td>EPA_LCD_128x296_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>51</td>
+                                    <td>0x33</td>
+                                    <td>EPA_LCD_128x296_1_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>72</td>
+                                    <td>0x48</td>
+                                    <td>EPA_LCD_400x300_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>75</td>
+                                    <td>0x4B</td>
+                                    <td>EPA_LCD_400x300_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>64</td>
+                                    <td>0x40</td>
+                                    <td>TFT_LCD_400x300_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>66</td>
+                                    <td>0x42</td>
+                                    <td>TFT_LCD_400x300_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>104</td>
+                                    <td>0x68</td>
+                                    <td>EPA_LCD_640x384_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>106</td>
+                                    <td>0x6A</td>
+                                    <td>EPA_LCD_640x384_BWR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ztext-empty-paragraph"><br></p>
+                        <p data-pid="zZjpWoCH">表1设备类型</p>
+                        <table data-draft-node="block" data-draft-type="table" data-size="normal"
+                            data-row-style="striped">
+                            <tbody>
+                                <tr>
+                                    <td>BIT7</td>
+                                    <td>BIT6</td>
+                                    <td>BIT5</td>
+                                    <td>BIT4</td>
+                                    <td>BIT3</td>
+                                    <td>BIT2</td>
+                                    <td>BIT1</td>
+                                    <td>BIT0</td>
+                                    <td>DEC</td>
+                                    <td>HEX</td>
+                                    <td>备注</td>
+                                </tr>
+                                <tr>
+                                    <td>Pixel3</td>
+                                    <td>Pixel2</td>
+                                    <td>Pixel1</td>
+                                    <td>Manu2</td>
+                                    <td>Manu1</td>
+                                    <td>Color2</td>
+                                    <td>Color1</td>
+                                    <td>Image type</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0x00</td>
+                                    <td>EPA_LCD_212x104_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>2</td>
+                                    <td>0x02</td>
+                                    <td>EPA_LCD_212x104_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>32</td>
+                                    <td>0x20</td>
+                                    <td>EPA_LCD_128x296_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>34</td>
+                                    <td>0x22</td>
+                                    <td>EPA_LCD_128x296_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>34</td>
+                                    <td>0x22</td>
+                                    <td>EPA_LCD_128x296_BWR_1</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>64</td>
+                                    <td>0x40</td>
+                                    <td>EPA_LCD_400x300_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>66</td>
+                                    <td>0x42</td>
+                                    <td>EPA_LCD_400x300_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>64</td>
+                                    <td>0x40</td>
+                                    <td>TFT_LCD_400x300_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>66</td>
+                                    <td>0x42</td>
+                                    <td>TFT_LCD_400x300_BWR</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>96</td>
+                                    <td>0x60</td>
+                                    <td>EPA_LCD_640x384_BW</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>98</td>
+                                    <td>0x62</td>
+                                    <td>EPA_LCD_640x384_BWR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-pid="OH3bHivM">&ZeroWidthSpace;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="button" tabindex="0" class="ContentItem-time">发布于 2023-06-12 04:03<!-- -->・IP 属地广东</div>
+        <div class="Post-topicsAndReviewer">
+            <div class="TopicList Post-Topics">
+                <div class="Tag Topic css-1s3a4zw" data-za-detail-view-path-module="TopicItem"
+                    data-za-extra-module="{&quot;card&quot;:{&quot;content&quot;:{&quot;type&quot;:&quot;Topic&quot;,&quot;token&quot;:&quot;19553837&quot;}}}">
+                    <span class="Tag-content"><a class="TopicLink" href="//www.zhihu.com/topic/19553837"
+                            target="_blank">
+                            <div class="css-1gomreu">蓝牙（Bluetooth）</div>
+                        </a></span>
+                </div>
+                <div class="Tag Topic css-1s3a4zw" data-za-detail-view-path-module="TopicItem"
+                    data-za-extra-module="{&quot;card&quot;:{&quot;content&quot;:{&quot;type&quot;:&quot;Topic&quot;,&quot;token&quot;:&quot;19977153&quot;}}}">
+                    <span class="Tag-content"><a class="TopicLink" href="//www.zhihu.com/topic/19977153"
+                            target="_blank">
+                            <div class="css-1gomreu">电子标签</div>
+                        </a></span>
+                </div>
+                <div class="Tag Topic css-1s3a4zw" data-za-detail-view-path-module="TopicItem"
+                    data-za-extra-module="{&quot;card&quot;:{&quot;content&quot;:{&quot;type&quot;:&quot;Topic&quot;,&quot;token&quot;:&quot;21714200&quot;}}}">
+                    <span class="Tag-content"><a class="TopicLink" href="//www.zhihu.com/topic/21714200"
+                            target="_blank">
+                            <div class="css-1gomreu">电子墨水屏</div>
+                        </a></span>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>
