@@ -14,6 +14,7 @@ class ScreenWriter:
         self.image = image
         self.block_size = None
         self.pending_notify = None
+        self.transfer_queue = None
         logger.debug(f"Image data: {len(image)} bytes")
         assert len(image) > 0
 
@@ -57,8 +58,19 @@ class ScreenWriter:
         await self.raw_request([0x02, *size.to_bytes(4, "little")])
 
     async def request_start_transfer(self):
+        self.transfer_queue = asyncio.Queue()
+
+        async def transfer_task(queue):
+            while True:
+                block = await queue.get()
+                if block is None:
+                    return
+                await self.send_image_block(block)
+
+        task = asyncio.create_task(transfer_task(self.transfer_queue))
         logger.debug("Request: start transfer")
         await self.raw_request([0x03])
+        await asyncio.wait([task])
 
     async def request_write_cancel(self):
         logger.debug("Request: write cancel")
@@ -93,10 +105,11 @@ class ScreenWriter:
         elif data[0] == 0x05:
             if data[1] == 0x00:
                 logger.debug(f"Success: image transfer request")
-                await self.send_image_block(int.from_bytes(data[2:6], "little"))
+                await self.transfer_queue.put(int.from_bytes(data[2:6], "little"))
             elif data[1] == 0x08:
                 logger.debug(f"Success: image transfer request")
                 logger.debug(f"Screen write complete")
+                await self.transfer_queue.put(None)
                 self.pending_notify.set()
             else:
                 raise Exception(f"Error: image transfer ({data[1]})")
