@@ -22,6 +22,10 @@ class ScreenWriter:
             await self.notify_handler(sender, data)
         await self.device.start_notify(ScreenWriter.REQUEST_CHARACTERISTIC, handler)
 
+    async def stop_notify(self):
+        logger.debug(f"Stop notify")
+        await self.device.stop_notify(ScreenWriter.REQUEST_CHARACTERISTIC)
+
     async def _send_request(self, data):
         logger.log(logging.NOTSET, f"Sending request message: {[data[i] for i in range(len(data))]}")
         self.pending_notify = asyncio.Event()
@@ -142,3 +146,4 @@ async def send_data_to_screen(address, image_data):
         await screen.request_block_size()
         await screen.request_write_screen()
         await screen.request_start_transfer()
+        await screen.stop_notify()
