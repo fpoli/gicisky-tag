@@ -6,6 +6,20 @@ from gicisky_tag.log import logger
 
 
 class ScreenWriter:
+    """
+    Class to write an image to a screen device.
+
+    Attrbutes:
+    - device: The `BleakClient` instance to which the image will be sent.
+    - image: The encoded image data, as a `bytes` object.
+    - block_size: The block size for the image transfer, as an `int` or `None` if not yet known.
+    - request_answered:
+        An `asyncio.Event` that will be set when a request send to the device is answered, or `None` if no request is
+        pending. `ScreenWriter` only sends one request at a time, so we just need one event.
+    - transfer_completion:
+        An `asyncio.Event` that will be set when the image transfer is completed.
+    """
+
     REQUEST_CHARACTERISTIC = "0000fef1-0000-1000-8000-00805f9b34fb"
     IMAGE_CHARACTERISTIC = "0000fef2-0000-1000-8000-00805f9b34fb"
 
