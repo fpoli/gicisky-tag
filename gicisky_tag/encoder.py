@@ -59,7 +59,7 @@ def dither_image_bwr(image, dithering, debug_folder=None):
     """Dither the image using black, white and red.
     """
     if dithering not in Dither:
-        raise ValueError(f"Invalid dithering parameter: {dither}")
+        raise ValueError(f"Invalid dithering parameter: {dithering}")
 
     if dithering in (Dither.NONE, Dither.FLOYDSTEINBERG):
         bwr_palette_image = Image.new("P", (1,1))
