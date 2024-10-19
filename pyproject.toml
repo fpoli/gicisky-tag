@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gicisky_tag"
-version = "0.1.0"
+version = "0.1.1"
 description = "Tools to write an image to a Gicisky tag"
 authors = ["Federico Poli <federpoli@gmail.com>"]
 license = "GPL-3.0-or-later"
