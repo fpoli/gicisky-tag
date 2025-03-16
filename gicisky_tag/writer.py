@@ -58,6 +58,8 @@ class ScreenWriter:
             logging.NOTSET,
             f"Sending request message: {[data[i] for i in range(len(data))]}",
         )
+        if not isinstance(data, bytes):
+            data = bytes(data)
         await self.device.write_gatt_char(
             ScreenWriter.REQUEST_CHARACTERISTIC,
             data,
